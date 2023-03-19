@@ -1,0 +1,189 @@
+{% load bootstrap4 %}
+{% load static %}
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Roboto Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+
+    <!--NAVBAR STYLING-->
+    <style>
+        .navbar-brand{
+            background: linear-gradient(to right, #9E00FF, #FF00D6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;    
+            font-size: 32px;
+            font-family: 'Roboto', sans-serif;
+            z-index: 1;
+        } 
+
+        .navbar-brand .title {
+             font-weight: 700;
+             z-index: 1;
+             font-size: 32px
+        } 
+
+        .navbar-brand .subtitle {
+            font-weight: 400;
+            z-index: 1;
+            font-size: 32px
+        } 
+        /*
+        .navbar-brand span {
+            font-size: 40px;
+            z-index: 1;
+        }*/
+
+        .navbar-brand img {
+            position: relative;
+            top: -10px;
+            left: -5px;
+            z-index: -1;
+        }
+
+        .navbar {
+            height: 75px;
+            background-color: #313131;
+            box-shadow: 0px 5px 10px 0px #000000;
+        }
+    </style>
+    
+
+    <!--HEADER/META TAG STYLING-->
+    <style>
+        .h1-gradient {
+            background: linear-gradient(to right, #9E00FF, #FF00D6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Seems to be what ACTUALLY alters h1 */
+        h1 {
+            font-size: 64px;
+            font-weight: 700;
+            width: 1348px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 40px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .h1 {
+                padding-bottom: 3rem;
+            }
+        }   
+
+
+
+        /* THIS ACTUALLY ALTERS H2 */
+        .h2-colour {
+            background-color: transparent;
+            color: #FFFFFF; 
+            font-weight: 400;  
+            width: 1148px;
+            font-size: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .h2-colour {
+                font-size: 18px;
+            }
+        } 
+
+        @media (min-width: 992px) {
+            .h2 {
+                padding-top: 3rem;
+            }
+        }
+        
+        .big-grid {
+            margin-top: -220px;
+        }
+
+    </style>
+
+
+</head>
+
+<body> 
+
+<body style="background-color: #313131">
+
+<nav class="navbar navbar-expand-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="{% static 'chatbot/images/Group 2.svg' %}" alt="chatbot">
+        <span class="title">RevU</span>
+        <span class="subtitle">- Demo Version</span>
+      </a>
+    </div>
+</nav>
+
+<div class="d-flex h-70 justify-content-center align-items-center">
+    <h1 class="text-center h1-gradient">Transform your Business Outreach with Customer Voices</h1>
+</div>
+
+<div class="d-flex h-10 justify-content-center align-items-center mb-3">
+    <h2 class="text-center h2-colour">Manage your business’s online reputation, intelligently automate your review responses, and keep track of what your customers are saying about you </h2>
+</div>
+
+<div style="display: flex; justify-content: flex-end;">
+    <img class="big-grid" src="{% static 'chatbot/images/Big Grid.svg' %}" alt="chatbot">
+</div>
+
+<div class="d-flex">
+
+    <div class="d-flex flex-column w-50 mr-3">
+      <form method="GET">
+        {% csrf_token %}
+        <h3 style="color: white;">Leave a review:</h3>
+        <textarea name="user_input" style="background-color: #4f4f4f;"></textarea>
+        
+        <button type="submit" class="btn btn-primary mt-3">Enable RevU</button>
+      </form>
+    </div>
+
+    <div class="d-flex flex-column w-50">
+      {% if response %} 
+        <h2 style="color: white;">RevU response:</h2>
+        <p style="color: white;">{{response}}</p>
+        <button id="regenerate_button" type="button" class="btn btn-secondary mt-3">Regenerate Reply</button>
+      {% else %} 
+        <h2 style="color: white;">RevU response:</h2>
+        <p></p>
+      {% endif %}
+    </div>
+
+  </div>
+  
+  <form method="GET" action="{% url 'summary_report' %}" class="mt-3">
+    <button type="submit" class ="btn btn-success">See summarizing report</button>
+  </form>
+
+</body>
+</html>

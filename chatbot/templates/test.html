@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  
+  <style>
+    .container{
+      background-color: #313131;
+      border-radius: 25px;
+    }
+
+    input[type="text"] {
+      border-radius: 10px;
+      color: white;
+      border-color: #313131;
+    }
+
+    @media (max-width: 576px) {
+        .container {
+          margin: 10px;
+        }}
+
+    .our-replies{
+      color: white;
+    }
+
+    button {
+      background: linear-gradient(to right, #9E00FF, #FF00D6);
+    }
+  </style>
+  
+  
+  </head>
+  <body>
+    <div class="container justify-content-center mt-5">
+        <div class="row">
+            <div class="col-sm-6 justify-content-center p-4">Col One
+              <form method="GET">
+                {% csrf_token %}
+
+                <h2 style="color: white;">
+                  <img src="https://www.w3schools.com/w3images/woods.jpg" style="width: 40px; height: 40px; margin-right: 10px; vertical-align: middle;">
+                  Customer Reviews
+                </h2>
+
+                <p class="text1" style="color: #b5b5b5;">Input data for RevU to respond to.
+                  When you're done, enable RevU.
+                </p>
+
+                <h6 style="color: white;">Leave a review:</h6>
+
+                <input type="text" name="user_input" style="background-color: #4f4f4f;"/>
+
+                <br>
+
+                <button type="submit" class="btn btn-primary mt-3">Enable RevU</button>
+              </form>
+            </div>
+
+            <div class="col-sm-6 justify-content-center p-4">Col Two
+
+              <h2 class="our-replies">Our Replies</h2>
+              
+              <p style="color: #b5b5b5">See how RevU performs under a variety of user inputs:</p>
+              
+              {% if response %} 
+              <h3>RevU response:</h3>
+              <p>
+                <img src=""
+                {{response}}
+
+              </p>
+              <button id="regenerate_button" class ="btn btn-secondary mt-3">Regenerate Reply</button>
+            {% else %} 
+              <h2>RevU response:</h2>
+              <p></p>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,418 @@
+{% load bootstrap4 %}
+{% load static %}
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <!--Roboto Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+
+    <!--NAVBAR STYLING-->
+    <style>
+        .navbar-brand{
+            background: linear-gradient(to right, #9E00FF, #FF00D6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;    
+            font-size: 32px;
+            font-family: 'Roboto', sans-serif;
+            z-index: 1;
+        } 
+
+        .navbar-brand .title {
+             font-weight: 700;
+             z-index: 1;
+             font-size: 32px
+        } 
+
+        .navbar-brand .subtitle {
+            font-weight: 400;
+            z-index: 1;
+            font-size: 32px
+        } 
+        /*
+        .navbar-brand span {
+            font-size: 40px;
+            z-index: 1;
+        }*/
+
+        .navbar-brand img {
+            position: relative;
+            top: -10px;
+            left: -5px;
+            z-index: -1;
+        }
+
+        .navbar {
+            height: 75px;
+            background-color: #313131;
+            box-shadow: 0px 5px 10px 0px #000000;
+        }
+    </style>
+    
+
+    <!--HEADER/META TAG STYLING-->
+    <style>
+        .h1-gradient {
+            background: linear-gradient(to right, #9E00FF, #FF00D6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Seems to be what ACTUALLY alters h1 */
+        h1 {
+            font-size: 64px;
+            font-weight: 700;
+            width: 1348px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* SMALL SCREEN */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 40px;
+                margin-bottom: 15px;
+            }
+        }
+        
+        /* MEDIUM SCREEN */
+        @media (max-width: 960px) and (min-width: 601px) {
+            h1 {
+                font-size: 54px;
+            }
+        }
+
+
+
+        /* THIS ACTUALLY ALTERS H2 */
+        .h2-colour {
+            background-color: transparent;
+            color: #FFFFFF; 
+            font-weight: 400;  
+            width: 1148px;
+            font-size: 30px;
+        }
+
+        /* MEDIUM SCREEN */
+        @media (max-width: 960px) and (min-width: 601px) {
+            .h2-colour {
+                font-size: 24px;
+            }
+        }
+
+        /* SMALL SCREEN */
+        @media (max-width: 600px) {
+            .h2-colour {
+                font-size: 18px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .h2 {
+                padding-top: 3rem;
+            }
+        }
+        
+        .big-grid {
+            margin-top: -220px;
+        }
+
+        .grey-shapes {
+            z-index: -2;
+            position: relative;
+            top: -40px;
+        }
+
+    </style>
+
+    <!--PURPLE BOX AND CONTENTS-->
+    <style>
+        .box{
+            z-index:-1;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            bottom: 0;
+            
+            top: 90%;
+            left: 0;
+            background: linear-gradient(to right, #9E3dff, #5a00b2);
+        }
+
+        @media (max-width: 552px) {
+            .box{
+                height: 120vh;
+            }
+        } 
+
+        .purple-grid {
+            position: relative;
+            top: 200px;
+        }
+
+        .purple-shapes{
+            z-index: 0;
+            position: absolute;
+            right: 0;
+        }
+    </style>
+
+<!--CONTAINER/EXAMPLE BOX-->
+    <style>
+        .container{
+            z-index: 1;
+            background-color: #313131;
+            border-radius: 25px;
+            position: absolute;
+            top: 40vh;
+            left: 0;
+            right: 0;
+            width: 70%;
+            justify-content: center;
+            top: 50%;
+        }       
+
+        @media (max-width: 790px) {
+            .container {
+                margin:auto;
+                width: 85%;
+                justify-content: center;
+                top: 60%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                margin:auto;
+                width: 85%;
+                justify-content: center;
+                top: 55%;
+            }
+        }
+    </style>
+
+    <!--COLUMN 1-->
+    <style>
+    .enable-revu-btn {
+      background: linear-gradient(to right, #8f00FF, #f503bf);
+      border-color: #313131;
+    }
+ 
+    .enable-revu-btn:hover {
+      background: linear-gradient(to right, #8f00FF, #f503bf); 
+      border-color: #313131;
+      /*background: white;
+      color: #8f00FF; */
+    }
+
+    .btn {
+      font-weight: 500;
+      font-size: 20px;
+      padding-left: 8%;
+      padding-right: 8%;
+      border-radius: 10px;
+      display:flex;
+      align-items: center;
+      color: white;
+      bottom: 100%;
+    }
+
+    textarea[name="user_input"] {
+      background-color: #4f4f4f;
+      border-radius: 10px;
+      border-color: #4f4f4f;
+      width: 87%;
+      height: 187px;
+      color: white;
+      padding:2%;
+      margin-bottom: 2%;
+      
+    }
+
+    @media (max-width: 1000px) {
+        textarea[name="user_input"] {
+            width: 95%;
+        }
+    }
+
+    .chevron {
+      height: 20px;
+    }
+
+    /* IF NEED BE YOU CAN DELETE THIS, THE AUTO-MARGIN IS FINE */
+    h5 {
+      margin-bottom: 10px;
+    }
+    </style>
+
+    <!--COLUMN 2-->
+    <style>
+        .our-replies{
+            color: white;
+        }
+
+        .regenerate-button {
+            background: #4f4f4f; 
+        }
+
+        .regenerate-button:hover {
+            background-color: #686868;
+            color: white;
+        }
+
+        .regen {
+            height: 17px;
+            padding-right: 7px;
+        }
+
+        /* IF IN DOUBT, DELETE THIS CLASS */
+        ol li {
+             /*list-style-image: url("{% static 'chatbot/images/Slice 2 (2) 1.svg' %}");*/
+             list-style-type: "RevU:"; 
+             margin-left: 4.5%;
+             color: white;
+             font-size: 18px;
+             /*top: 10px;
+             padding: 100px -1000px px 5px;
+                list-style: none;
+                margin: 0;
+                vertical-align: middle; 
+          */}
+
+        ol > li::marker {
+            font-weight: 600;
+        }
+
+        ul.start {
+            color: white;
+            font-size: 18px;
+        }
+
+        li {
+            padding-bottom: 15px;
+        }
+    </style>
+
+
+</head>
+
+<body> 
+
+<body style="background-color: #313131;">
+
+<nav class="navbar navbar-expand-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'summary_report' %}">
+        <img src="{% static 'chatbot/images/Group 2.svg' %}" alt="chatbot">
+        <span class="title">RevU</span>
+        <span class="subtitle">- Demo</span>
+      </a>
+    </div>
+</nav> 
+
+<div class="d-flex h-70 justify-content-center align-items-center">
+    <h1 class="text-center h1-gradient">Transform your Business Outreach with Customer Voices</h1>
+</div>
+
+<div class="d-flex h-10 justify-content-center align-items-center mb-3">
+    <h2 class="text-center h2-colour">Manage your business’s online reputation, intelligently automate your review responses, and keep track of what your customers are saying about you </h2>
+</div>
+
+<div style="display: flex; justify-content: flex-end;">
+    <img class="big-grid" src="{% static 'chatbot/images/Big Grid.svg' %}" alt="chatbot">
+</div>
+
+<div style="display: flex; justify-content: flex-start;">
+    <img class="grey-shapes" src="{% static 'chatbot/images/Grey Shapes.svg' %}">
+</div>
+
+<div class="box">
+    <img class="purple-grid" src="{% static 'chatbot/images/Purple Grid.svg' %}">
+    <img class="purple-shapes" src="{% static 'chatbot/images/Purple Shapes.svg' %}">
+</div>
+
+
+<div class="container justify-content-center mt-5">
+
+    <div class="row col">
+        <div class="col-md-6 justify-content-center p-4"> 
+            <form method="GET">
+                {% csrf_token %}
+                <h2 style="color: white;">
+                    <img src="{% static 'chatbot/images/Reviews Chat Icon.svg' %}" class="icon1" style="width: 40px; height: 40px; margin-right: 10px; vertical-align: middle;">
+                    Customer Reviews
+                  </h2>
+                  <p class="text1" style="color: #b5b5b5;">Input data for RevU to generate customer insight and respond to.
+                    When you're done, enable RevU.
+                  </p>
+                <h5 style="color: white;">Leave a review:</h5>
+                <textarea name="user_input" rows="3" class="input-width"></textarea>
+
+                <br>
+        
+                <button type="submit" class="btn btn-primary enable-revu-btn mt-3" >Enable RevU
+                    <img class="chevron" src="{% static 'chatbot/images/chevron.png' %}">
+                </button>
+            </form>
+        </div>
+
+        <div class="col-md-6 justify-content-center p-4">
+            <h2 class="our-replies">
+                <img src="{% static 'chatbot/images/Replies Chat Icon.svg' %}" style="width: 40px; height: 40px; margin-right: 10px; vertical-align: middle;">
+                Our Replies
+            </h2>
+
+            <p style="color: #b5b5b5;">See how RevU performs under a variety of user inputs:</p>
+
+            {% if response %} 
+            <p style="color: white;">
+                
+                <!--<img src="{% static 'chatbot/images/Reply Chevron.svg' %}">-->
+                <ol class="response-list">
+                    <li class="full-response" style="position: relative;">{{response}}</li>
+                </ol>
+            </p>
+            <button id="regenerate_button" class ="btn regenerate-button mt-3" style="border-color:#313131;">
+                <img class="regen" src="{% static 'chatbot/images/regen.png' %}">
+                Regenerate Reply
+            </button>
+            {% else %} 
+                <!--<h2>RevU response:</h2>-->
+                <p></p>
+
+                <h3 style="color: white; padding-bottom: 15px;">Go ahead! If you're stuck, here are some ideas:</h3>
+                <ul class="start">
+                    <li>Copy and paste actual customer reviews for your business to see how we compare</li>
+                    <li>See how far we can go with very positive or negative reviews, the crazier the better</li>
+                    <li>Talk about your own personal experiences with a business venue</li>
+                </ul>
+                
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+
+<!---->
+  
+<!----
+  <form method="GET" action="{% url 'summary_report' %}" class="mt-3">
+    <button type="submit" class ="btn btn-success">See summarizing report</button>
+  </form> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+
+  </script>
+
+</body>
+</html>
