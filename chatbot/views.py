@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 # Create your views here.
 
-openai.api_key = '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'
+openai.api_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 prompt_context = "create a reply for the following google review for a pub in London called 'The George Inn', ensure the reply is professional but informal enough to make it indistinguishable from a human response, if a review is negative - ask the customer to contact via email at 7781@greeneking.co.uk. Also finish each reply with a signature of the pub managers full name which is Jason Giardelli" 
 
