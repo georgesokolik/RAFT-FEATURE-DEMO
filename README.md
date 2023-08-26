@@ -1,4 +1,4 @@
-# RevU
+# RAFT REVIEW AUTO-RESPONSE (REVU) & SUMMARY REPORT
 RAFT feature demo (RevU) of auto-generated Google/Yelp review responses + auto-generated summary report.
 
 Personal NLP & ML algorithms have been removed and replaced with 3rd party OpenAI davinci-003 model API for several reasons:
